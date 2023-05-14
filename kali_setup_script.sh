@@ -83,7 +83,7 @@ do
       install_go
       install_postman
       install_sublime_text
-      install_linux_tools
+      install_linux_priv_tools
       update_system
       install_python2_and_pip2
       ;;
