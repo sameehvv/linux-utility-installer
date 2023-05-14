@@ -32,10 +32,11 @@ function install_sublime_text {
 
 function install_linux_priv_tools {
   mkdir /home/$USER/Desktop/linpriv_tools
-  wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -o /home/$USER/Desktop/linpriv_tools/linpeas.sh
-  wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -o /home/$USER/Desktop/linpriv_tools/linux-exploit-suggester.sh
-  wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64 -o /home/$USER/Desktop/linpriv_tools/pspy64
-  wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32 -o /home/$USER/Desktop/linpriv_tools/pspy32
+  wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -P /home/$USER/Desktop/linpriv_tools/
+  wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -P /home/$USER/Desktop/linpriv_tools/
+  wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64 -P /home/$USER/Desktop/linpriv_tools/
+  wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy32 -P /home/$USER/Desktop/linpriv_tools/
+  echo "Tools has been downloaded on /home/$USER/Desktop/linpriv_tools"
 }
 
 function update_system {
@@ -56,7 +57,7 @@ function install_python2_and_pip2 {
 
 # Main menu
 PS3='Please enter your choice: '
-options=("Install Go" "Install Postman" "Install Sublime Text" "Install Linux Tools" "Update System" "install python2 and pip2" "All" "Quit")
+options=("Install Go" "Install Postman" "Install Sublime Text" "Install Linux Priv Tools" "Update System" "install python2 and pip2" "All" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -69,8 +70,8 @@ do
     "Install Sublime Text")
       install_sublime_text
       ;;
-    "Install Linux Tools")
-      install_linux_tools
+    "Install Linux Priv Tools")
+      install_linux_priv_tools
       ;;
     "Update System")
       update_system
